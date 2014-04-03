@@ -1,0 +1,23 @@
+{
+	"name": "xplore/dps-pxpay",
+	"description": "PHP cURL implementation of DPS PxPay 2.0 API",
+	"type": "library",
+	"homepage": "https://github.com/XploreNet/dps-pxpay",
+	"keywords": [
+		"dps",
+    "pxpay"
+	],
+	"license": "MIT License",
+	"authors": [{
+		"name": "Xplore",
+		"email": "developers@xplore.net",
+		"homepage": "https://github.com/XploreNet"
+	}, {
+    "name": "Matt Dwen",
+    "email": "matt@dwen.co.nz",
+    "homepage": "http://dwen.co.nz"
+  }],
+	"support": {
+		"issues": "https://github.com/XploreNet/dps-pxpay/issues"
+	}
+}
