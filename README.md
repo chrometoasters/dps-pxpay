@@ -54,3 +54,7 @@ if (is_null($response)) {
     // Try again, n00b
 }
 ```
+
+License
+-------
+[MIT License](http://choosealicense.com/licenses/mit)
