@@ -1132,7 +1132,8 @@
                 'NO' => 'Request contains non ASCII characters.',
                 'NP' => 'Closing Request tag not found.',
                 'NQ' => 'User not enabled for PxPay 2.0. Contact DPS.',
-                'NT' => 'Key is not 64 characters.'
+                'NT' => 'Key is not 64 characters.',
+                'W4' => 'Duplicate transaction'
             );
 
             if (array_key_exists($responseCode, $errors)) {
