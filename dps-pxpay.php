@@ -7,7 +7,7 @@
      *
      * @category
      * @package     xplore-dps-pxpay
-     * @version     1.0.0
+     * @version     1.0.1
      * @copyright   2014 Xplore Net Solutions
      * @license     http://opensource.org/licenses/MIT MIT License
      * @author      Matt Dwen @mattdwen
