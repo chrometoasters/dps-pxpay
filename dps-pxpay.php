@@ -9,7 +9,7 @@
      * @package     xplore-dps-pxpay
      * @version     1.0.0
      * @copyright   2014 Xplore Net Solutions
-     * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
+     * @license     http://opensource.org/licenses/MIT MIT License
      * @author      Matt Dwen @mattdwen
      * @link        http://www.paymentexpress.com/Downloads/DPSECOM_PXPay_2_0_IntegrationGuide.pdf
      */

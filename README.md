@@ -57,4 +57,4 @@ if (is_null($response)) {
 
 License
 -------
-[MIT License](http://choosealicense.com/licenses/mit)
+[MIT License](http://opensource.org/licenses/MIT)
