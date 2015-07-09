@@ -115,12 +115,26 @@
         #region Public Methods
 
         /**
-         * Send the request to DPS and redirect to the payment page
+         * Redirect to payment page after sending a request to DPS
          *
          * @param TransactionRequest $request
          * @throws RequestException if any request parameters are missing or invalid
          */
         public function SendRequest(TransactionRequest $request) {
+
+            $url = $this->CreateRequestUrl($request);
+
+            header('Location: ' . $url);
+        }
+
+        /**
+         * Use a request, send it to DPS and return a URL to the payment page
+         *
+         * @param TransactionRequest $request
+         * @throws RequestException if any request parameters are missing or invalid
+         * @return string   url of the payment page for redirection
+         */
+        public function CreateRequestUrl(TransactionRequest $request) {
             $request
                 ->SetUserId($this->userId)
                 ->SetKey($this->key);
@@ -131,7 +145,7 @@
             $response = new TransactionResponse($output);
             $url = $response->GetUrl();
 
-            header('Location: ' . $url);
+            return $url;
         }
 
         /**
