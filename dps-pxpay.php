@@ -7,10 +7,11 @@
      *
      * @category
      * @package     xplore-dps-pxpay
-     * @version     1.0.1
+     * @version     1.0.3
      * @copyright   2014 Xplore Net Solutions
      * @license     http://opensource.org/licenses/MIT MIT License
      * @author      Matt Dwen @mattdwen
+     * @author      Michal Kleiner @michalkleiner - small modifications
      * @link        http://www.paymentexpress.com/Downloads/DPSECOM_PXPay_2_0_IntegrationGuide.pdf
      */
 
@@ -51,14 +52,16 @@
         /**
          * Create a new instance of the PxPay client
          *
-         * Your userId and key and optionally be provided
+         * Your userId and key, optionally service URL to be provided
          *
          * @param string $userId
          * @param string $key
+         * @param string $px_pay_url
          */
-        public function __construct($userId, $key) {
+        public function __construct($userId, $key, $px_pay_url = null) {
             $this->userId = $userId;
             $this->key = $key;
+            $this->pxPayUrl = $px_pay_url;
         }
 
         #endregion Constructor
@@ -83,9 +86,28 @@
          */
         private $userId = null;
 
+        /**
+         * DPS PxPay URL
+         * @var string
+         */
+        private $pxPayUrl = null;
+
         #endregion Declarations
 
         #region Private Methods
+
+        /**
+         * Return service URL either from provided variable or constant
+         *
+         * @return string
+         */
+        private function getPxPayUrl() {
+            if (empty($this->pxPayUrl)) {
+                $this->pxPayUrl = $this::PX_PAY_URL;
+            }
+
+            return $this->pxPayUrl;
+        }
 
         /**
          * Send the xml message to the given url
@@ -141,7 +163,7 @@
 
             $xml = $request->ToXml();
 
-            $output = $this->Curl_Send($xml, $this::PX_PAY_URL);
+            $output = $this->Curl_Send($xml, $this->getPxPayUrl());
             $response = new TransactionResponse($output);
             $url = $response->GetUrl();
 
@@ -171,7 +193,7 @@
                 ->SetResponse($resultString);
             $xml = $resultRequest->ToXml();
 
-            $output = $this->Curl_Send($xml, $this::PX_PAY_URL);
+            $output = $this->Curl_Send($xml, $this->getPxPayUrl());
             $result = new Response($output);
 
             return $result;
